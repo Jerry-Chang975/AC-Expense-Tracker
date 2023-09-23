@@ -1,0 +1,12 @@
+body {
+  background-color: #707070;
+}
+
+.navbar .navbar-brand {
+  color: #707070;
+}
+
+.navbar .navbar-brand:hover {
+  color: #1a1a1a;
+  transform: scale(1.03);
+}
