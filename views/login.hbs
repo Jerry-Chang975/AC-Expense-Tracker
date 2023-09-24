@@ -8,6 +8,7 @@
       novalidate
     >
       <h1 class='h3 mb-3 fw-normal'>Log In</h1>
+      <hr />
       <div class='form-floating'>
         <input
           type='email'
@@ -19,7 +20,7 @@
         />
         <label for='email'>Email address</label>
         <div class='invalid-feedback'>
-          請輸入正確Email!
+          Please enter the valid email!
         </div>
       </div>
       <div class='form-floating mt-2'>
@@ -33,7 +34,7 @@
         />
         <label for='password'>Password</label>
         <div class='invalid-feedback'>
-          請輸入密碼!
+          Please enter the password!
         </div>
       </div>
 
@@ -63,17 +64,4 @@
   </div>
 </div>
 
-<script>
-  const rememberMe = document.querySelector('#rememberMe'); const email =
-  document.querySelector('#email'); window.addEventListener('load', ()=>{
-  rememberMe.checked = localStorage.getItem('rememberMe') === 'true'? true:
-  false; email.value = localStorage.getItem('email') || ''; }) const form =
-  document.querySelector('form'); form.addEventListener('submit', function
-  (event) { if (!form.checkValidity()) { event.preventDefault();
-  event.stopPropagation(); } form.classList.add('was-validated'); //
-  標記表單已驗證 if (rememberMe.checked) { localStorage.setItem('email',
-  document.querySelector('#email').value); localStorage.setItem('rememberMe',
-  'true'); } else { localStorage.removeItem('email');
-  localStorage.setItem('rememberMe', 'false'); } });
-
-</script>
+<script src='/js/login-script.js'></script>

@@ -5,6 +5,6 @@ const userRouter = require('./user');
 // import passport strategy
 require('../config/passport');
 
-router.use('/user', userRouter);
+router.use('/users', userRouter);
 
 module.exports = router;

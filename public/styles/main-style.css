@@ -1,12 +1,9 @@
-body {
-  background-color: #707070;
-}
 
 .navbar .navbar-brand {
-  color: #707070;
+  color: rgb(37, 37, 37);
 }
 
 .navbar .navbar-brand:hover {
-  color: #1a1a1a;
+  color: #f6f6f6;
   transform: scale(1.03);
 }

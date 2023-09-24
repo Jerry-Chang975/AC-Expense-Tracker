@@ -1,0 +1,107 @@
+<link rel='stylesheet' href='/styles/login-style.css' />
+<div class='center-vertical'>
+  <div class='w-50 mx-auto my-auto login-container' style='min-width: 450px;'>
+    <form
+      action='/users/register'
+      method='POST'
+      class='needs-validation'
+      novalidate
+    >
+      <h1 class='h3 mb-3 fw-normal'>Sign Up</h1>
+      <hr />
+      <div class='row'>
+        <div class='row mb-2'>
+          <div class='col-4 my-auto'>
+            <i class='fas fa-envelope'></i>
+            Email：
+          </div>
+          <div class='col-8'>
+            <input
+              type='email'
+              class='form-control'
+              name='email'
+              id='email'
+              maxlength='200'
+              placeholder='you@example.com'
+              required
+            />
+            <div class='invalid-feedback'>
+              Enter the valid email!
+            </div>
+          </div>
+        </div>
+        <div class='row mb-2'>
+          <div class='col-4 my-auto'>
+            <i class='fas fa-user'></i>
+            Name：
+          </div>
+          <div class='col-8'>
+            <input
+              type='text'
+              class='form-control'
+              name='name'
+              id='name'
+              maxlength='200'
+              placeholder='your name'
+            />
+          </div>
+        </div>
+        <div class='row mb-2'>
+          <div class='col-4'>
+            <i class='fas fa-lock'></i>
+            Password：
+          </div>
+          <div class='col-8'>
+            <input
+              type='password'
+              class='form-control'
+              name='password'
+              id='password'
+              maxlength='200'
+              pattern='^(?=.*[a-z])(?=.*[A-Z]).{8,}$'
+              placeholder='your password'
+              required
+            />
+            <div class='invalid-feedback'>
+              At least 8 characters, including at least one uppercase and one
+              lowercase letter!
+            </div>
+          </div>
+
+        </div>
+        <div class='row mb-2'>
+          <div class='col-4'>
+            <i class='fas fa-lock'></i>
+            Password confirm：
+          </div>
+          <div class='col-8'>
+            <input
+              type='password'
+              class='form-control'
+              name='confirmPassword'
+              id='confirmPassword'
+              maxlength='200'
+              pattern='^(?=.*[a-z])(?=.*[A-Z]).{8,}$'
+              placeholder='Please enter the password again.'
+              required
+            />
+            <div class='invalid-feedback'>
+              The passwords do not match!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class='btn btn-success mt-3 w-100 py-2' type='submit'>
+        Register
+      </button>
+
+      <p class='mt-2'>
+        Already have an account?
+        <a href='/users/login'>Log in</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<script src='/js/register-script.js'></script>
