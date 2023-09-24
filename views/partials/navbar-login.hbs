@@ -1,0 +1,28 @@
+<header>
+  <nav class='navbar' style='background-color: rgba(0, 0, 0, 0.5);'>
+    <div class='container-fluid'>
+      <a class='navbar-brand .text-light d-flex align-items-center' href='/'>
+        <img
+          src='/images/list-note.png'
+          alt='Logo'
+          width='40'
+          height='36'
+          class='d-inline-block align-text-top m-1'
+        />Expense Tracker
+      </a>
+      <form
+        class='d-flex align-items-center my-auto'
+        action='/users/logout'
+        method='POST'
+      >
+        <span class='navbar-brand me-3' style='cursor: default'>
+          Welcome,
+          {{user.name}}
+        </span>
+        <button class='btn btn-outline-primary' type='submit'>
+          登出
+        </button>
+      </form>
+    </div>
+  </nav>
+</header>

@@ -1,5 +1,6 @@
 const db = require('../models');
 const Record = db.Record;
+const helpers = require('../utils/helpers');
 
 async function getRecords(req, res) {
   try {
@@ -10,12 +11,17 @@ async function getRecords(req, res) {
       order: [['date', 'DESC']],
     });
 
+    // convert date format (yyyy-mm-dd)
+    records.forEach((record) => {
+      record.date = helpers.dateConvert(record.date);
+    });
+
     // total
     let totalAmount = await Record.sum('amount', {
       where: { userId: req.user.id },
     });
 
-    return res.render('index', { records, totalAmount });
+    return res.render('index', { records, totalAmount, user: req.user });
   } catch (err) {
     console.log(err);
   }
