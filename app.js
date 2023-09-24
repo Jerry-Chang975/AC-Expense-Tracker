@@ -8,6 +8,11 @@ const port = process.env.PORT || 3000;
 
 const passport = require('passport');
 const session = require('express-session');
+
+const flash = require('connect-flash');
+const errorHandler = require('./middlewares/error-handler');
+const messageHandler = require('./middlewares/message-handler');
+
 const methodOverride = require('method-override');
 
 const router = require('./routes');
@@ -31,16 +36,19 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => res.render('index'));
 
-// add routes
+app.use(messageHandler);
+
 app.use('/', router);
+
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`The app is running on http://localhost:${port}`);

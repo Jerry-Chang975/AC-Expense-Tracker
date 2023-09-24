@@ -7,4 +7,6 @@ require('../config/passport');
 
 router.use('/users', userRouter);
 
+router.get('/', (req, res) => res.render('index'));
+
 module.exports = router;

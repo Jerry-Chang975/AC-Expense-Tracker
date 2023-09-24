@@ -23,6 +23,7 @@ passport.use(
           ? done(null, user)
           : done(null, false, { message: 'Incorrect email or password.' });
       } catch (error) {
+        error.errorMessage = 'Login failed';
         done(error);
       }
     }
