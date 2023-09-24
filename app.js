@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 
 const passport = require('passport');
 const session = require('express-session');
+const methodOverride = require('method-override');
 
 const router = require('./routes');
 
@@ -16,6 +17,10 @@ const { engine } = require('express-handlebars');
 app.engine('.hbs', engine({ extname: '.hbs' }));
 app.set('view engine', '.hbs');
 app.set('views', './views');
+
+// data parsing setting
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 console.log(process.env.NODE_ENV);
 // user authorization setting

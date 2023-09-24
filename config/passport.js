@@ -28,3 +28,19 @@ passport.use(
     }
   )
 );
+
+// serialize and deserialize user
+passport.serializeUser((user, done) => {
+  const { id, name, email } = user;
+  return done(null, { id, name, email });
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, {
+    id: user.id,
+    name: user.name.length ? user.name : user.email.split('@')[0],
+    email: user.email,
+  });
+});
+
+module.exports = passport;
