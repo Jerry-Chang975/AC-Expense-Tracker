@@ -1,0 +1,90 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "SEED_USER",
+      "email": "user1@mail.com",
+      "password": "12345678"
+    },
+    {
+      "id": 2,
+      "name": "SEED_USER2",
+      "email": "user2@mail.com",
+      "password": "12345678"
+    }
+  ],
+  "records": [
+    {
+      "id": 1,
+      "name": "午餐",
+      "date": "20230501",
+      "amount": 100,
+      "memo": "便當",
+      "userId": 1,
+      "categoryId": 4
+    },
+    {
+      "id": 2,
+      "name": "晚餐",
+      "date": "20230501",
+      "amount": 150,
+      "memo": "小火鍋",
+      "userId": 1,
+      "categoryId": 4
+    },
+    {
+      "id": 3,
+      "name": "電影票",
+      "date": "20230502",
+      "amount": 460,
+      "memo": "跟女友一起看捍衛任務4",
+      "userId": 1,
+      "categoryId": 3
+    },
+    {
+      "id": 4,
+      "name": "早餐",
+      "date": "20230611",
+      "amount": 60,
+      "memo": "飯糰",
+      "userId": 2,
+      "categoryId": 4
+    },
+    {
+      "id": 5,
+      "name": "午餐",
+      "date": "20230611",
+      "amount": 90,
+      "memo": "鍋燒意麵",
+      "userId": 2,
+      "categoryId": 4
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "家居物業",
+      "iconUrl": "https://fontawesome.com/icons/home?style=solid"
+    },
+    {
+      "id": 2,
+      "name": "交通出行",
+      "iconUrl": "https://fontawesome.com/icons/shuttle-van?style=solid"
+    },
+    {
+      "id": 3,
+      "name": "休閒娛樂",
+      "iconUrl": "https://fontawesome.com/icons/grin-beam?style=solid"
+    },
+    {
+      "id": 4,
+      "name": "餐飲食品",
+      "iconUrl": "https://fontawesome.com/icons/utensils?style=solid"
+    },
+    {
+      "id": 5,
+      "name": "其他",
+      "iconUrl": "https://fontawesome.com/icons/pen?style=solid"
+    }
+  ]
+}
