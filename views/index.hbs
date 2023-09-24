@@ -1,5 +1,5 @@
-<div class='container mt-5' style='max-width: 1000px'>
-  <div class=''>
+<div class='container mt-5' style='max-width: 1000px; width: 70vw'>
+  <div>
     <select class='form-select' aria-label='Default select example'>
       <option selected>Open this select menu</option>
       <option value='1'>One</option>
@@ -7,4 +7,23 @@
       <option value='3'>Three</option>
     </select>
   </div>
+  <h3 class='text-center m-4'>Total Amount: {{totalAmount}}</h3>
+  <table class='table table-striped text-center'>
+    <tbody>
+      <thead>
+        <td>name</td>
+        <td>Date</td>
+        <td>amount</td>
+        <td>memo</td>
+      </thead>
+      {{#each records as |record|}}
+        <tr>
+          <td>{{record.name}}</td>
+          <td>{{record.date}}</td>
+          <td>{{record.amount}}</td>
+          <td>{{record.memo}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
