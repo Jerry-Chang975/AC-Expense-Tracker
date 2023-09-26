@@ -1,28 +1,35 @@
 {{> navbar-login}}
+<link rel="stylesheet" href="/styles/index-style.css">
 <div class='container mt-5' style='max-width: 1000px; width: 70vw'>
   <div>
     <select class='form-select' aria-label='Default select example'>
-      <option selected>Open this select menu</option>
-      <option value='1'>One</option>
-      <option value='2'>Two</option>
-      <option value='3'>Three</option>
+      <option selected>All</option>
+      {{#each categories as |category|}}
+        <option value='{{category.id}}'>{{category.name}}</option>
+      {{/each}}
     </select>
   </div>
-  <h3 class='text-center m-4'>Total Amount: {{totalAmount}}</h3>
-  <table class='table table-striped text-center'>
+  <h3 class='text-center m-5 fs-5'>Total Amount
+    <i class='fa-regular fa-dollar-sign text-primary mx-1 fs-3'></i><span
+      class='text-primary fs-3'
+    >{{totalAmount}}</span></h3>
+  <table class='table table-striped'>
     <tbody>
-      <thead>
-        <td>name</td>
-        <td>Date</td>
-        <td>amount</td>
-        <td>memo</td>
-      </thead>
       {{#each records as |record|}}
         <tr>
-          <td>{{record.name}}</td>
-          <td>{{record.date}}</td>
+          <td>
+            <i class='{{record.categoryIconUrl}} '></i>
+          </td>
+          <td>
+            <p>{{record.name}}</p>
+            <p>{{record.date}}</p>
+          </td>
           <td>{{record.amount}}</td>
-          <td>{{record.memo}}</td>
+          <td>
+            <button><i class='fa-solid fa-pen text-secondary'></i></button>
+            <button><i class='fa-solid fa-trash text-danger'></i>
+            </button>
+          </td>
         </tr>
       {{/each}}
     </tbody>

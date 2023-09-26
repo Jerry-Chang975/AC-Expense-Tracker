@@ -64,27 +64,27 @@
     {
       "id": 1,
       "name": "家居物業",
-      "iconUrl": "https://fontawesome.com/icons/home?style=solid"
+      "iconUrl": "fa-solid fa-house"
     },
     {
       "id": 2,
       "name": "交通出行",
-      "iconUrl": "https://fontawesome.com/icons/shuttle-van?style=solid"
+      "iconUrl": "fa-solid fa-van-shuttle"
     },
     {
       "id": 3,
       "name": "休閒娛樂",
-      "iconUrl": "https://fontawesome.com/icons/grin-beam?style=solid"
+      "iconUrl": "fa-solid fa-face-grin-beam"
     },
     {
       "id": 4,
       "name": "餐飲食品",
-      "iconUrl": "https://fontawesome.com/icons/utensils?style=solid"
+      "iconUrl": "fa-solid fa-utensils"
     },
     {
       "id": 5,
       "name": "其他",
-      "iconUrl": "https://fontawesome.com/icons/pen?style=solid"
+      "iconUrl": "fa-solid fa-pen"
     }
   ]
 }
