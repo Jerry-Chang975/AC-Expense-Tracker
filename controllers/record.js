@@ -53,7 +53,37 @@ async function getRecords(req, res) {
   }
 }
 
-async function createRecord(req, res) {}
+async function getCreatePage(req, res) {
+  // categories
+  const categories = await Category.findAll({
+    raw: true,
+    attributes: ['id', 'name'],
+  });
+
+  return res.render('create', {
+    user: req.user,
+    today: new Date().toISOString().slice(0, 10),
+    categories,
+  });
+}
+
+async function createRecord(req, res) {
+  const { name, date, categoryId, amount } = req.body;
+  console.log(req.body);
+  try {
+    Record.create({
+      name,
+      date,
+      amount,
+      categoryId,
+      userId: req.user.id,
+    });
+    return res.redirect('/');
+  } catch (err) {
+    console.log(err);
+    return res.redirect('/records/create');
+  }
+}
 
 async function updateRecord(req, res) {}
 
@@ -61,6 +91,7 @@ async function deleteRecord(req, res) {}
 
 module.exports = {
   getRecords,
+  getCreatePage,
   createRecord,
   updateRecord,
   deleteRecord,
