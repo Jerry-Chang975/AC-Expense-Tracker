@@ -19,7 +19,6 @@
       "name": "午餐",
       "date": "20230501",
       "amount": 100,
-      "memo": "便當",
       "userId": 1,
       "categoryId": 4
     },
@@ -28,7 +27,6 @@
       "name": "晚餐",
       "date": "20230501",
       "amount": 150,
-      "memo": "小火鍋",
       "userId": 1,
       "categoryId": 4
     },
@@ -37,7 +35,6 @@
       "name": "電影票",
       "date": "20230502",
       "amount": 460,
-      "memo": "跟女友一起看捍衛任務4",
       "userId": 1,
       "categoryId": 3
     },
@@ -46,7 +43,6 @@
       "name": "早餐",
       "date": "20230611",
       "amount": 60,
-      "memo": "飯糰",
       "userId": 2,
       "categoryId": 4
     },
@@ -55,7 +51,6 @@
       "name": "午餐",
       "date": "20230611",
       "amount": 90,
-      "memo": "鍋燒意麵",
       "userId": 2,
       "categoryId": 4
     }
