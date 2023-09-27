@@ -14,7 +14,6 @@ async function getRecords(req, res) {
         'name',
         'date',
         'amount',
-        'memo',
         [sequelize.col('Category.name'), 'categoryName'],
         [sequelize.col('Category.iconUrl'), 'categoryIconUrl'],
       ],
@@ -85,6 +84,29 @@ async function createRecord(req, res) {
   }
 }
 
+async function getEditPage(req, res) {
+  const { id } = req.params;
+  const record = await Record.findOne({
+    where: { id, userId: req.user.id },
+  });
+  if (!record) {
+    req.flash('error', 'Item not found');
+    return res.redirect('/');
+  }
+  // categories
+  const categories = await Category.findAll({
+    raw: true,
+    attributes: ['id', 'name'],
+  });
+  return res.render('edit', {
+    name: record.name,
+    date: helpers.dateConvert(record.date),
+    amount: record.amount,
+    selectedCategory: categories.find((e) => e.id === record.categoryId),
+    categories,
+  });
+}
+
 async function updateRecord(req, res) {}
 
 async function deleteRecord(req, res) {}
@@ -93,6 +115,7 @@ module.exports = {
   getRecords,
   getCreatePage,
   createRecord,
+  getEditPage,
   updateRecord,
   deleteRecord,
 };
