@@ -53,6 +53,15 @@ async function getRecords(req, res) {
   }
 }
 
+async function createRecord(req, res) {}
+
+async function updateRecord(req, res) {}
+
+async function deleteRecord(req, res) {}
+
 module.exports = {
   getRecords,
+  createRecord,
+  updateRecord,
+  deleteRecord,
 };

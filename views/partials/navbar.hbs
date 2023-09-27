@@ -1,0 +1,30 @@
+<header>
+  <nav class='navbar bg-dark p-2'>
+    <div class='container-fluid'>
+      <a
+        class='navbar-brand text-light d-flex align-items-center fw-bolder'
+        href='/'
+      >
+        <i class='bi bi-journal-text ms-3 me-2 text-white'></i>
+        Expense Tracker
+      </a>
+      {{#if user}}
+        <form
+          class='d-flex align-items-center my-auto'
+          action='/users/logout'
+          method='POST'
+        >
+          <span
+            class='navbar-brand me-2 text-warning fw-light fs-6'
+            style='cursor: default'
+          >
+            {{user.name}}
+          </span>
+          <button class='btn btn-sm btn-light fw-bold' type='submit'>
+            Log out
+          </button>
+        </form>
+      {{/if}}
+    </div>
+  </nav>
+</header>

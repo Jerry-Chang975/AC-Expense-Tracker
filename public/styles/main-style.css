@@ -1,5 +1,5 @@
-.navbar .navbar-brand {
-  color: rgb(37, 37, 37);
+.navbar {
+  height: 60px;
 }
 
 .navbar .navbar-brand:hover {
