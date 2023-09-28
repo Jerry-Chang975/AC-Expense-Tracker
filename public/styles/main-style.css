@@ -6,3 +6,11 @@
   color: #f6f6f6;
   transform: scale(1.03);
 }
+#recordForm label {
+  width: 20%;
+  min-width: 120px;
+}
+.editBtns a,
+.editBtns button {
+  min-width: 80px;
+}

@@ -1,6 +1,9 @@
 <link rel='stylesheet' href='/styles/index-style.css' />
-<div class='container mt-5' style='max-width: 1000px; width: 70vw'>
-  <div>
+<div
+  class='container mt-5 d-flex flex-column align-items-center'
+  style='max-width: 1000px; width: 70vw'
+>
+  <div class='w-100'>
     <select class='form-select' aria-label='Default select example'>
       <option selected>All</option>
       {{#each categories as |category|}}
@@ -26,14 +29,17 @@
           <td>{{record.amount}}</td>
           <td>
             <a href='/records/edit/{{record.id}}'><i
-                class='fa-solid fa-pen text-secondary'
+                class='fa-solid fa-pen text-secondary mx-3'
               ></i></a>
-            <button><i class='fa-solid fa-trash text-danger'></i>
-            </button>
+            <a href='#'><i class='fa-solid fa-trash text-danger mx-3'></i>
+            </a>
           </td>
         </tr>
       {{/each}}
     </tbody>
   </table>
-  <a href='/records/create' class='btn btn-success'>Create</a>
+  <a
+    href='/records/create'
+    class='btn btn-warning btn-sm text-dark m-3 fw-bold'
+  >Create</a>
 </div>
