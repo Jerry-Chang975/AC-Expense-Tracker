@@ -1,6 +1,6 @@
-'use strict';
-const initData = require('./seedData.json');
-const bcrypt = require('bcryptjs');
+"use strict";
+const initData = require("./seedData.json");
+const bcrypt = require("bcryptjs");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
       transaction = await queryInterface.sequelize.transaction();
       // users data
       await queryInterface.bulkInsert(
-        'users',
+        "users",
         await Promise.all(
           initData.users.map(async (user) => {
             const hash = await bcrypt.hash(user.password, 10);
@@ -30,7 +30,7 @@ module.exports = {
       );
       // categories data
       await queryInterface.bulkInsert(
-        'categories',
+        "categories",
         initData.categories.map((category) => {
           return {
             id: category.id,
@@ -44,14 +44,13 @@ module.exports = {
       );
       // records data
       await queryInterface.bulkInsert(
-        'records',
+        "records",
         initData.records.map((record) => {
           return {
             id: record.id,
             name: record.name,
             date: record.date,
             amount: record.amount,
-            memo: record.memo,
             createdAt: new Date(),
             updatedAt: new Date(),
             userId: record.userId,
@@ -73,8 +72,8 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('users', null, {});
-    await queryInterface.bulkDelete('categories', null, {});
-    await queryInterface.bulkDelete('records', null, {});
+    await queryInterface.bulkDelete("users", null, {});
+    await queryInterface.bulkDelete("categories", null, {});
+    await queryInterface.bulkDelete("records", null, {});
   },
 };
