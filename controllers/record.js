@@ -90,8 +90,9 @@ async function getEditPage(req, res) {
     where: { id, userId: req.user.id },
   });
   if (!record) {
-    req.flash('error', 'Item not found');
-    return res.redirect('/');
+    console.log('item not found');
+    req.flash('error', 'item not found');
+    return res.redirect('/records');
   }
   // categories
   const categories = await Category.findAll({
@@ -99,6 +100,8 @@ async function getEditPage(req, res) {
     attributes: ['id', 'name'],
   });
   return res.render('edit', {
+    id,
+    user: req.user,
     name: record.name,
     date: helpers.dateConvert(record.date),
     amount: record.amount,
@@ -107,7 +110,27 @@ async function getEditPage(req, res) {
   });
 }
 
-async function updateRecord(req, res) {}
+async function updateRecord(req, res) {
+  const { id } = req.params;
+  const { name, date, categoryId, amount } = req.body;
+  try {
+    await Record.update(
+      {
+        name,
+        date,
+        categoryId,
+        amount,
+      },
+      {
+        where: { id, userId: req.user.id },
+      }
+    );
+    return res.redirect('/');
+  } catch (err) {
+    console.log(err);
+    return res.redirect(`/records/edit/${id}`);
+  }
+}
 
 async function deleteRecord(req, res) {}
 
