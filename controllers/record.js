@@ -47,8 +47,8 @@ async function getRecords(req, res) {
       categories,
       user: req.user,
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 }
 
@@ -68,6 +68,14 @@ async function getCreatePage(req, res) {
 
 async function createRecord(req, res) {
   const { name, date, categoryId, amount } = req.body;
+  if (!name || !date || !categoryId || !amount) {
+    req.flash('error', 'All column must be filled');
+    return res.redirect('/records/create');
+  }
+  if (amount > 99999999) {
+    req.flash('error', 'Amount must be less than 99999999');
+    return res.redirect('/records/create');
+  }
   console.log(req.body);
   try {
     Record.create({
@@ -78,8 +86,8 @@ async function createRecord(req, res) {
       userId: req.user.id,
     });
     return res.redirect('/');
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     return res.redirect('/records/create');
   }
 }
@@ -113,6 +121,14 @@ async function getEditPage(req, res) {
 async function updateRecord(req, res) {
   const { id } = req.params;
   const { name, date, categoryId, amount } = req.body;
+  if (!name || !date || !categoryId || !amount) {
+    req.flash('error', 'All column must be filled');
+    return res.redirect('/records/create');
+  }
+  if (amount > 99999999) {
+    req.flash('error', 'Amount must be less than 99999999');
+    return res.redirect('/records/create');
+  }
   try {
     await Record.update(
       {
@@ -126,13 +142,23 @@ async function updateRecord(req, res) {
       }
     );
     return res.redirect('/');
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     return res.redirect(`/records/edit/${id}`);
   }
 }
 
-async function deleteRecord(req, res) {}
+async function deleteRecord(req, res) {
+  const { id } = req.params;
+  try {
+    await Record.destroy({
+      where: { id, userId: req.user.id },
+    });
+    return res.redirect('/');
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 module.exports = {
   getRecords,

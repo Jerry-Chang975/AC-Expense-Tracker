@@ -34,8 +34,8 @@ function register(req, res) {
 }
 
 function logout(req, res) {
-  req.logout((err) => {
-    if (err) next(err);
+  req.logout((error) => {
+    if (error) next(error);
     return res.redirect('/users/login');
   });
 }
