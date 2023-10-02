@@ -6,6 +6,8 @@ const helpers = require('../utils/helpers');
 
 async function getRecords(req, res) {
   try {
+    const categoryId = parseInt(req.query.categoryId);
+    console.log(categoryId);
     // items
     const records = await Record.findAll({
       raw: true,
@@ -17,7 +19,9 @@ async function getRecords(req, res) {
         [sequelize.col('Category.name'), 'categoryName'],
         [sequelize.col('Category.iconUrl'), 'categoryIconUrl'],
       ],
-      where: { userId: req.user.id },
+      where: categoryId
+        ? { userId: req.user.id, categoryId }
+        : { userId: req.user.id },
       order: [['date', 'DESC']],
       include: {
         model: Category,
@@ -36,10 +40,20 @@ async function getRecords(req, res) {
       attributes: ['id', 'name'],
     });
 
-    // total
-    const totalAmount = await Record.sum('amount', {
-      where: { userId: req.user.id },
+    // selected category
+    categories.forEach((cate) => {
+      if (cate.id === categoryId) {
+        cate.selected = 'selected';
+      }
     });
+
+    // total
+    const totalAmount =
+      (await Record.sum('amount', {
+        where: categoryId
+          ? { userId: req.user.id, categoryId }
+          : { userId: req.user.id },
+      })) || 0;
 
     return res.render('index', {
       records,
