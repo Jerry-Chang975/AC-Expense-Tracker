@@ -37,19 +37,24 @@
             <p>{{record.date}}</p>
           </td>
           <td>{{record.amount}}</td>
-          <td>
-            <a href='/records/edit/{{record.id}}'><i
-                class='fa-solid fa-pen text-secondary mx-3'
-              ></i></a>
-            <form
-              class='remove-item'
-              action='/records/{{record.id}}?_method=DELETE'
-              method='POST'
+          <td class=''>
+            <div
+              class='container d-flex justify-content-end align-items-center'
             >
-              <button type='submit'>
-                <i class='fa-solid fa-trash text-danger mx-3'></i>
-              </button>
-            </form>
+              <a href='/records/edit/{{record.id}}'><i
+                  class='fa-solid fa-pen text-secondary mx-3'
+                ></i></a>
+              <form
+                class='remove-item'
+                action='/records/{{record.id}}?_method=DELETE'
+                method='POST'
+                style='margin: 0rem'
+              >
+                <button type='submit'>
+                  <i class='fa-solid fa-trash text-danger mx-3'></i>
+                </button>
+              </form>
+            </div>
           </td>
         </tr>
       {{/each}}
