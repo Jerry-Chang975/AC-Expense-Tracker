@@ -55,7 +55,7 @@ This web application allows you to:
      "development": {
        "username": "your username",
        "password": "your password",
-       "database": "restaurant",
+       "database": "expense_tracker",
        "host": "your host",
        "dialect": "mysql"
      }
@@ -84,7 +84,7 @@ This web application allows you to:
 
 1.  Go to [Meta for Developers](https://developers.facebook.com/apps) to set up the OAuth2 configurations for your app.
 
-2.  After creating the app, copy the App ID and App Key to your .env file (you need to create this file yourself by referring to .env.example).
+2.  After creating the app, copy the App ID and App Key to your .env file (you need to create this file yourself by referring to `.env.example`).
 
     ```
     PORT = 3000
