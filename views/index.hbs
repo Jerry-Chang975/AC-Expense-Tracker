@@ -27,37 +27,41 @@
     >{{totalAmount}}</span></h3>
   <table id='item-container' class='table table-striped'>
     <tbody>
-      {{#each records as |record|}}
-        <tr>
-          <td>
-            <i class='{{record.categoryIconUrl}} '></i>
-          </td>
-          <td>
-            <p>{{record.name}}</p>
-            <p>{{record.date}}</p>
-          </td>
-          <td>{{record.amount}}</td>
-          <td class=''>
-            <div
-              class='container d-flex justify-content-end align-items-center'
-            >
-              <a href='/records/edit/{{record.id}}'><i
-                  class='fa-solid fa-pen text-secondary mx-3'
-                ></i></a>
-              <form
-                class='remove-item'
-                action='/records/{{record.id}}?_method=DELETE'
-                method='POST'
-                style='margin: 0rem'
+      {{#if records.length}}
+        {{#each records as |record|}}
+          <tr>
+            <td>
+              <i class='{{record.categoryIconUrl}} '></i>
+            </td>
+            <td>
+              <p>{{record.name}}</p>
+              <p>{{record.date}}</p>
+            </td>
+            <td>{{record.amount}}</td>
+            <td class=''>
+              <div
+                class='container d-flex justify-content-end align-items-center'
               >
-                <button type='submit'>
-                  <i class='fa-solid fa-trash text-danger mx-3'></i>
-                </button>
-              </form>
-            </div>
-          </td>
-        </tr>
-      {{/each}}
+                <a href='/records/edit/{{record.id}}'><i
+                    class='fa-solid fa-pen text-secondary mx-3'
+                  ></i></a>
+                <form
+                  class='remove-item'
+                  action='/records/{{record.id}}?_method=DELETE'
+                  method='POST'
+                  style='margin: 0rem'
+                >
+                  <button type='submit'>
+                    <i class='fa-solid fa-trash text-danger mx-3'></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        {{/each}}
+      {{else}}
+        <tr><h4>No items...</h4></tr>
+      {{/if}}
     </tbody>
   </table>
   <a
