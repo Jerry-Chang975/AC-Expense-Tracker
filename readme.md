@@ -71,7 +71,7 @@ This web application allows you to:
 3. Run database migrations
 
    ```bash
-   npm run migration
+   npm run migrate
    ```
 
 4. Add seed data
